@@ -81,21 +81,3 @@ public class Skypro28DemoApplication {
    //     minSalary = employees[i].getSalary();
    //     minSalaryEmpl = employees[i];
 
-
-   //     }
-   //     }
-   //     }
-   //     return minSalaryEmpl;
-   //     }
-
-//public static Employee getEmployeeMaxSalary() {
-     //   float maxSalary = -1;
-    //    Employee maxSalaryEmpl = null;
-    //    int index = 0;
-   //     for (int i = 0; i < employees.length; i++) {
-    //    if (employees != null) {
-    //    maxSalary = employees[i].getSalary();
-    //    index = i;
-    //    break;
-    //    }
-    //    }
