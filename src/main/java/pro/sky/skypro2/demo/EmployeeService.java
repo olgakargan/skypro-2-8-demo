@@ -24,11 +24,11 @@ public interface EmployeeService {
 
 
     public interface employeeService {
-        Employee addEmployee(String fam, String name, int salary, int department);
+        Employee addEmployee(String fam, String name, int salary, int department) throws EmployeeAlreadyAddedException;
 
-        Employee removeEmployee(String fam, String name);
+        Employee removeEmployee(String fam, String name) throws EmployeeAlreadyAddedException;
 
-        Employee findEmployee(String fam, String name);
+        Employee findEmployee(String fam, String name) throws EmployeeAlreadyAddedException;
 
         Employee getLowestPaidEmployee(int department);
 

@@ -1,5 +1,7 @@
 package pro.sky.skypro2.demo;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -9,16 +11,6 @@ public class Employee {
     private final int department;
     private final float salary;
 
-
-    public Employee(String fam1, String name, int department, float salary1) {
-
-        this.fam = fam1;
-        this.name = name;
-        this.department = department;
-        this.salary = salary1;
-
-
-    }
 
     public String getFam() {
         return fam;
@@ -42,15 +34,15 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return department == employee.department && Float.compare(employee.salary, salary) == 0 && fam.equals(employee.fam) && name.equals(employee.name);
+        return department == employee.department && Float.compare(employee.salary, salary) == 0
+                && fam.equals(employee.fam) && name.equals(employee.name);
     }
 
-    public Employee(String fam, String name, Department department, float salary) {
-        this.fam = fam;
-        this.name = name;
-        this.department = department.ordinal();
+    public Employee(String fam, String name, int department, float salary) {
+        this.fam = StringUtils.capitalize(fam.toLowerCase());
+        this.name = StringUtils.capitalize(name.toLowerCase());
+        this.department = department;
         this.salary = salary;
-
 
     }
 
