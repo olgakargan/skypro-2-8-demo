@@ -1,19 +1,34 @@
 package pro.sky.skypro2.demo;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Objects;
 
 public class Employee {
-
     private final String fam;
     private final String name;
     private final int department;
-    private final float salary;
+    private final int salary;
+    public static final int MAX_SALARY = Integer.MAX_VALUE / 2;
 
+    public Employee(String fam, String name, int department, int salary) {
+        this.fam = fam;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
 
-    public String getFam() {
-        return fam;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return department == employee.department && salary == employee.salary &&
+                fam.equalsIgnoreCase(employee.fam) &&
+                name.equalsIgnoreCase(employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fam, name, department, salary);
     }
 
     public String getName() {
@@ -24,41 +39,9 @@ public class Employee {
         return department;
     }
 
-    public float getSalary() {
+    public int getSalary() {
         return salary;
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return department == employee.department && Float.compare(employee.salary, salary) == 0
-                && fam.equals(employee.fam) && name.equals(employee.name);
-    }
-
-    public Employee(String fam, String name, int department, float salary) {
-        this.fam = StringUtils.capitalize(fam.toLowerCase());
-        this.name = StringUtils.capitalize(name.toLowerCase());
-        this.department = department;
-        this.salary = salary;
-
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(fam, name, department, salary);
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "fam='" + fam + '\'' +
-                ", name='" + name + '\'' +
-                ", department=" + department +
-                ", salary=" + salary +
-                '}';
-    }
 }
-
